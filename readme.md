@@ -89,7 +89,7 @@ Enabled `stream=True` and processed `response.output_text.delta` events to print
 
 ### 5. Asynchronous Client
 
-Built `chat-async.py` using `AsyncOpenAI` and `azure.identity.aio` to await responses asynchronously — useful for improving responsiveness in apps with long-running model or agent operations.
+Built `chat-async.py` using `AsyncOpenAI` and `azure.identity.aio` to await responses asynchronously useful for improving responsiveness in apps with long-running model or agent operations.
 
 ```bash
 python chat-async.py
