@@ -18,6 +18,14 @@ def main():
         model_deployment = os.getenv("MODEL_DEPLOYMENT")
 
         # Initialize the OpenAI client
+        token_provider = get_bearer_token_provider(
+            DefaultAzureCredential(), "https://ai.azure.com/.default"
+        )
+            
+        openai_client = OpenAI(
+            base_url=azure_openai_endpoint,
+            api_key=token_provider
+        )
         
 
 
