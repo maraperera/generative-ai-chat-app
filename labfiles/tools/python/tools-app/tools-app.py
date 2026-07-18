@@ -62,6 +62,27 @@ def main():
                 continue
 
             # Get a response using tools
+            response = openai_client.responses.create(
+                model=model_deployment,
+                instructions="""
+                You are a travel assistant that provides information on travel services available from Margie's Travel.
+                Answer questions about services offered by Margie's Travel using the provided travel brochures.
+                Search the web for general information about destinations or current travel advice.
+                """,
+                input=input_text,
+                previous_response_id=last_response_id,
+                tools=[
+                    {
+                        "type": "file_search",
+                        "vector_store_ids": [vector_store.id]
+                    },
+                    {
+                        "type": "web_search"
+                    }
+                ]
+            )
+            print(response.output_text)
+            last_response_id = response.id
             
 
 
