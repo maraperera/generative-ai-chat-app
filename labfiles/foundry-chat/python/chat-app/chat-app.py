@@ -2,6 +2,8 @@ import os
 from dotenv import load_dotenv
 
 # import namespaces
+from openai import OpenAI
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 
 
 
